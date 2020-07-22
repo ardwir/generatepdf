@@ -1,0 +1,32 @@
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+  main:
+    banner-mode: "off"
+  application: 
+    name: export-pdf 
+  datasource:
+    url: jdbc:postgresql://localhost:5432/transaction
+    username: postgres
+    password: admin
+    initialization-mode: always
+  jackson:
+    time-zone: GMT+7
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+logging:
+  level:
+    org:
+      springframework: ERROR
+      
+## Hibernate Properties
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+ 
