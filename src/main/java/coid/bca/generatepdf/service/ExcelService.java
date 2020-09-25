@@ -19,12 +19,9 @@ public class ExcelService {
 	
 	public void save(MultipartFile file) {
 		try {
-			System.out.println("Masuk service");
 			List<Transaction> transactions = GenerateExcel.excelTrx(file.getInputStream());
-			System.out.println("Udah dari Utility");
 			trxRepository.saveAll(transactions);
 		} catch (IOException e) {
-			System.out.println("Gagal cuk!!");
 			System.out.println(e.getMessage());
 			throw new RuntimeException("Fail to Store ExcelData: " + e.getMessage());
 		}
